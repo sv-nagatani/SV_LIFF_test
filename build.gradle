@@ -34,3 +34,8 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
+bootWar {
+	// ビルド時に生成されるwarファイル名を指定
+	setArchiveFileName 'sv_liff_test.war'
+}

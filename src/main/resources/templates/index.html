@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>SV LIFF test</title>
+<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+<script src="/index.js" th:src="@{/index.js}" type="module"></script>
+</head>
+<body>
+これはLIFFのテストです。
+<div id="access"></div>
+<br />
+LIFFから取得できる情報：<br />
+動作環境：<br />
+liff.getLanguage():<span id="text1"></span><br />
+liff.getVersion():<span id="text2"></span><br />
+liff.isInClient():<span id="text3"></span><br />
+liff.isLoggedIn():<span id="text4"></span><br />
+liff.getOS():<span id="text5"></span><br />
+liff.getLineVersion():<span id="text6"></span><br />
+<br />
+プロフィール：<br />
+liff.getProfile():<span id="text7"></span><br />
+<br />
+認証関係：<br />
+liff.permission.query("profile"):<span id="text8"></span><br />
+liff.permission.query("openid"):<span id="text9"></span><br />
+</body>
+</html>

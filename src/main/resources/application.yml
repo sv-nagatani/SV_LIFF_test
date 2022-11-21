@@ -1,0 +1,4 @@
+## コンテキストパスを指定
+server:
+  servlet:
+    contextPath: /SV_LIFF_test

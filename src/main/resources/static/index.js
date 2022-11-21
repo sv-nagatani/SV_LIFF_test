@@ -13,9 +13,17 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("text4").textContent = liff.isLoggedIn();
         document.getElementById("text5").textContent = liff.getOS();
         document.getElementById("text6").textContent = liff.getLineVersion();
-        document.getElementById("text7").textContent = liff.getProfile().resolve();
-        document.getElementById("text8").textContent = liff.permission.query("profile").resolve();
-        document.getElementById("text9").textContent = liff.permission.query("openid").resolve();
+        liff.getProfile().then((profile) => {
+			document.getElementById("text7").textContent = profile.displayName;
+			document.getElementById("text8").textContent = profile.pictureUrl;
+			document.getElementById("text9").textContent = profile.statusMessage;
+		});
+        liff.permission.query("profile").then((permission) => {
+			document.getElementById("text10").textContent = permission.state;
+		});
+        liff.permission.query("openid").then((permission) => {
+			document.getElementById("text11").textContent = permission.state;
+		});
     })
     .catch((error) => {
         console.log(error)

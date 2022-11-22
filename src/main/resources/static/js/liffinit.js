@@ -9,5 +9,11 @@ $(function() {
 	})
 	.catch((error) => {
 		console.log(error)
-	})
+	});
+	if(liff.isInClient() && !liff.isLoggedIn()) {
+		liff.login();
+	}
+	else {
+		console.log("Not in LINE Browser Or Logged In")
+	}
 });

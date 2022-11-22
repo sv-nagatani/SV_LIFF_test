@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja" 
+		xmlns:th="http://www.thymeleaf.org">
+<head>
+
+	<meta charset="utf-8">
+
+	<!-- JQuery読み込み -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
+
+	<!-- LIFF SDK読み込み -->
+	<script charset="utf-8" src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+	<!-- LIFF初期化 -->
+	<script th:src="@{/js/liffinit.js}" type="module"></script>
+
+	<!-- QRコード生成用にJQueryプラグイン読み込み -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script> 
+
+	<!-- ページごとのスクリプト処理 -->
+	<script th:src="@{/js/genqrcode.js}" type="module"></script>
+
+	<title>QRコード生成</title>
+
+</head>
+<body>
+
+	<div>
+		好きな文字列からQRコードを生成します。<br />
+		<input type="text" id="input-qrcode" value="QR Code"/><br />
+		<input type="button" value="QRコード生成" onclick="genQRCode()" /><br />
+		<div id="div-qrcode"></div>
+	</div>
+	<a href="./index">戻る</a>
+</body>
+
+<script type="text/javascript">
+$(function() {
+	genQRCode();
+});
+
+function genQRCode () {
+	var qrtext = $("#input-qrcode").val();
+	var utf8qrtext = unescape(encodeURIComponent(qrtext));
+	
+	$("#div-qrcode").html("");
+	$("#div-qrcode").qrcode({text:utf8qrtext});
+}
+</script>
+
+</html>

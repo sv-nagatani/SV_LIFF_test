@@ -10,6 +10,7 @@ $(function() {
     $("#text5").html(liff.getOS());
     $("#text6").html(liff.getLineVersion());
     liff.getProfile().then((profile) => {
+		$("#text12").html(profile.userId);
 		$("#text7").html(profile.displayName);
 		$("#text8").html(profile.pictureUrl);
 		$("#text9").html(profile.statusMessage);
